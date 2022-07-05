@@ -1,3 +1,6 @@
-### Blueboy
-Es un sitio en donde se concentrarán el resultado final de los proyectos que se generen.
+# Te damos la bienvenida a Blueboy
+
+Blueboy es un sitio simple y flexible para visualizar notas y proyectos. Blueboy funciona como un enlazador a un repositorio que aloja proyectos Open Source. Así como la documentación.
+
+![](../../../Descargas/bear.JPG)
 
