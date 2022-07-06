@@ -2,4 +2,5 @@
 
 Blueboy es un sitio simple y flexible para visualizar notas y proyectos. Blueboy funciona como un enlazador a un repositorio que aloja proyectos Open Source. Así como la documentación.
 
-![](https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEiJdstG1_wqsZMowk6XwNPodsCbKrAisF1rHS_I9fyLzki7Qn8byBfLfEYhNAQy5nevhuCdb3Szi07Kgu-ZbEbCFku97Axy_Hkm8J9bJo4YGbGFmvZxQHdc2TS3zwM8t_WEXdlsn1utKtGVOpwlwaqq2iv4bmNT02OdSdluR5J9u-5JfB_XETeyVAYE/s1080/bear.JPG)
+![screen](https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgd2Qg2uOb2h28VsYwS7m_FWUK4D4vZcI1JZDBzyFZa_9wXkTLxH6lf_zZxctUrOY1TsVHwhqOCPb5RYc4X90F4HA3JnfyoKwYjOOfyL2F2iNMeOfjljsPFYmmT156M8AqcrUHGOh3anMjdMmIhy_pb2luEK9FnRPN0gVHp13ai3nO7d69s3svyg-iY/w945-h600-p-k-no-nu/bear1.png)
+
