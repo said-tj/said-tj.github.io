@@ -2,169 +2,24 @@
 <html lang="es" >
 <head>
   <meta charset="UTF-8">
-  <title>Los Cuaterniones - Actividad Integradora - STJ</title>
-  <link rel="stylesheet" href="./style.css">
+  <title>Para Dulce</title>
+  <link href="https://fonts.googleapis.com/css?family=Montserrat:900&display=swap" rel="stylesheet"><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/meyer-reset/2.0/reset.min.css">
+<link rel="stylesheet" href="./style.css">
 
 </head>
 <body>
 <!-- partial:index.partial.html -->
-<!--
-Created for Mathtober, a series of maths based creative promtps that can be found https://fractalkitty.com/2022/09/17/mathober-2022-prompts/
-
-rotateTilePattern from The Book Of Shaders
-
-Morphing shader from
-https://stackoverflow.com/questions/38712632/morphing-sphere-into-plane
--->
-
-
-
-<div id="shader"></div>
-<script id="vertex" type="x-shader/x-vertex">
-  uniform float u_time;
-varying float vTime;
-varying vec2 vUv;
-  uniform vec2 uMouse;
-
-
-
-
-#define M_PI 3.14159265
-
-
-vec3 anglesToSphereCoord(vec2 a, float r)
-{
-    return vec3(
-       r * sin(a.y) * sin(a.x),
-      r * cos(a.y),
-      r * sin(a.y) * cos(a.x)
-    );
-}
-
-void main()	{
-	vec2 angles = M_PI * vec2(2. * uv.x, uv.y - 1.);
-  vec3 sphPos = anglesToSphereCoord(angles, 0.6);
-  vec3 wrapPos = mix(position, sphPos, (uMouse.x+1.) * .5);
-
-  gl_Position = projectionMatrix * modelViewMatrix * vec4( wrapPos, 1.0 );
-
-  vUv = uv;
-  vTime = u_time;
-}
-
-              
-</script>
-
-<script id="fragment" type="x-shader/x-fragment">
-precision highp float;
-  
- uniform vec2 u_resolution;
-uniform float u_time;
-  varying vec2 vUv;
-
-const float PI = 3.1415926535897932384626433832795;
-const float TAU = PI * 2.;
-const float HALF_PI = PI * .5;
-
-vec2 rotate2D (vec2 _st, float _angle) {
-    _st -= 0.5;
-    _st =  mat2(cos(_angle),-sin(_angle),
-                sin(_angle),cos(_angle)) * _st;
-    _st += 0.5;
-    return _st;
-}
-
-
-vec2 rotateTilePattern(vec2 _st){
-
-  
-    float t = u_time + length(_st-.5);
-    //  Scale the coordinate system by 2x2
-    _st *= 2.0;
-
-    //  Give each cell an index number
-    //  according to its position
-    float index = 0.0;
-    index += step(1., mod(_st.x,2.0));
-    index += step(1., mod(_st.y,2.0))*2.0;
-
-    //      |
-    //  2   |   3
-    //      |
-    //--------------
-    //      |
-    //  0   |   1
-    //      |
-
-    // Make each cell between 0.0 - 1.0
-    _st = fract(_st);
-
-    // Rotate each cell according to the index
-    if(index == 1.0){
-        //  Rotate cell 1 by 90 degrees
-        _st = rotate2D(_st,PI*0.5 + t);
-    } else if(index == 2.0){
-        //  Rotate cell 2 by -90 degrees
-        _st = rotate2D(_st,PI*-0.5 + t);
-    } else if(index == 3.0){
-        //  Rotate cell 3 by 180 degrees
-        _st = rotate2D(_st,PI);
-    }
-
-    return _st;
-}
-
-
-void coswarp(inout vec3 trip, float warpsScale ){
-
-  trip.xyz += warpsScale * .1 * cos(3. * trip.yzx + (u_time * .15));
-  trip.xyz += warpsScale * .05 * cos(11. * trip.yzx + (u_time * .15));
-  trip.xyz += warpsScale * .025 * cos(17. * trip.yzx + (u_time * .15));
-  
-}
-
-
-
-void coswarp2(inout vec2 trip, float warpsScale ){
-
-  float vTime = u_time;
-  trip.xy += warpsScale * .1 * cos(3. * trip.yx + (vTime * .15));
-  trip.xy += warpsScale * .05 * cos(11. * trip.yx + (vTime * .25));
-  trip.xy += warpsScale * .025 * cos(17. * trip.yx + (vTime * .35));
- 
-}
-
-void main() {
- // position of the pixel divided by resolution, to get normalized positions on the canvas
-	vec2 st = vUv;
-	vec2 uv = vUv;
-  float t = u_time +length(uv-.5);
-   float t2 = (u_time * .88) +length(uv-.5);
-   float t3 = (u_time * .77) +length(uv-.5);
-	uv = rotateTilePattern(fract(uv * 2.));
-	
-	
-	
-	vec3 color = vec3(uv.x, uv.y, 1.);
-	
-	coswarp(color, 3. );
-  coswarp(color, 3. );
-  
-  color.r += step(length(st-.5), .5 + sin(t));
-  color.g += step(length(st-.5), .4 + sin(t2));
-  color.b += step(length(st-.5), .3 + sin(t3));
-
-	
-
-
-
-	
-
-  gl_FragColor = vec4(color,1.); 
-}
-</script>
+<div class="cursor"></div>
+<div class="shapes">
+  <div class="shape shape-1"></div>
+  <div class="shape shape-2"></div>
+  <div class="shape shape-3"></div>
+</div>
+<div class="content">
+  <h1>Te gustaría salir bonita??</h1>
+</div>
 <!-- partial -->
-  <script src='https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js'></script><script  src="./script.js"></script>
+  <script src='https://s3-us-west-2.amazonaws.com/s.cdpn.io/16327/gsap-latest-beta.min.js'></script><script  src="./script.js"></script>
 
 </body>
 </html>
