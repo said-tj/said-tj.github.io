@@ -55,7 +55,7 @@ body {
 
 .blog-author h3::before,
 .blog-author--no-cover h3::before {
-  background: url("https://s3-us-west-2.amazonaws.com/s.cdpn.io/17779/russ.jpeg");
+  background: url("https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjyN1pSwNDxh_y7_mmcZB7bpPzF43PgarUOo6r6dSWcWmmYkYEw_i2oYPn3X0JQLA9hhjMsdbj5o6mUnTRD_eqfnoqavZWUQFH6y0Z9qJDQb6RDVTgjMHs9cfdkajduGVwKrdJLHfxSfslbkTvbsR4tYFBCbtRcMSw4kd-cbuxifjlpC5SS6HAo8krsMQ/w945-h600-p-k-no-nu/uatx.png");
   background-size: cover;
   border-radius: 50%;
   content: " ";
