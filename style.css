@@ -128,3 +128,107 @@ section.active p,section.active .highlight{
   50%{background-position:100% 50%}
   100%{background-position:0% 50%}
 }
+
+
+
+/* ---- Responsive ---- */
+/* ----------  RESPONSIVE  ---------- */
+
+/* Tablet (≤ 768 px) */
+@media (max-width: 768px) {
+  /* ——— Header ——— */
+  .site-header {
+    padding: 0.75rem 0;
+  }
+  .nav {
+    gap: 1rem;                /* enlaces un poco más juntos */
+  }
+  .nav a {
+    font-size: 0.95rem;
+  }
+
+  /* ——— Hero ——— */
+  .hero {
+    height: 70vh;             /* menos alto en tablet */
+    padding: 0 1rem;
+  }
+  .hero-content h2 {
+    font-size: 2.4rem;        /* título más pequeño */
+  }
+  .subtitle {
+    font-size: 1.1rem;
+  }
+  .btn-primary {
+    padding: 0.6rem 1.25rem;
+    font-size: 0.95rem;
+  }
+
+  /* ——— Grid de proyectos ——— */
+  .project-list {
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 1.5rem;
+  }
+}
+
+/* ----------  MÓVIL (≤ 480px) – menú en fila  ---------- */
+@media (max-width: 480px) {
+  /* Header: mismo layout, solo ajusta padding */
+  .site-header {
+    padding: 0.75rem 1rem;
+    /* elimina flex-direction: column; */
+  }
+
+  /* Nav en fila, con wrap o scroll si hace falta */
+  .nav {
+    display: flex;
+    flex-wrap: wrap;       /* para que bajen si no caben */
+    justify-content: center;
+    gap: 0.75rem;
+    overflow-x: auto;      /* scroll horizontal si es necesario */
+    -webkit-overflow-scrolling: touch;
+  }
+  .nav a {
+    margin: 0;             /* elimina márgenes verticales */
+    font-size: 0.9rem;
+    white-space: nowrap;   /* evitar que se rompan en varias líneas */
+  }
+
+  /* Hero */
+  .hero {
+    height: 65vh;
+  }
+  .hero-content h2 {
+    font-size: 1.9rem;
+  }
+  .subtitle {
+    font-size: 1rem;
+    margin-bottom: 1rem;
+  }
+  .btn-primary {
+    padding: 0.55rem 1.1rem;
+    font-size: 0.9rem;
+  }
+  .scroll-down {
+    font-size: 1.6rem;
+  }
+
+  /* Secciones */
+  section {
+    padding: 2rem 0;
+  }
+
+  /* Proyectos: una sola columna */
+  .project-list {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+  .project-card {
+    padding: 1.25rem;
+  }
+
+  /* Footer */
+  .site-footer {
+    padding: 1rem 0;
+    font-size: 0.8rem;
+  }
+}
