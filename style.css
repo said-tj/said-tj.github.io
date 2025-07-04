@@ -1,0 +1,130 @@
+:root{
+  /* Colores y tipografías */
+  --bg:#ffffff;
+  --text:#333333;
+  --accent:#ffffff;
+  --accent-hover:#ffffff;
+  --fg-inactive:#888888;
+
+  --font-sans:'Inter',sans-serif;
+  --font-serif:'Playfair Display',serif;
+}
+
+/* Reset mínimo */
+*{margin:0;padding:0;box-sizing:border-box}
+
+body{
+  background:var(--bg);
+  color:var(--text);
+  font-family:var(--font-sans);
+  line-height:1.6;
+}
+
+/* ----------  Layout  ---------- */
+.container{max-width:800px;margin:0 auto;padding:2rem 1rem}
+
+/* Header */
+.site-header{
+  display:flex;justify-content:space-between;align-items:center;
+  padding:1rem 0;background:var(--bg);
+  position:sticky;top:0;z-index:100;
+}
+.logo-container .logo-img{width:48px;height:auto}
+.nav{display:flex;gap:1.5rem}
+.nav a{color:var(--text);text-decoration:none;transition:color .2s}
+.nav a:hover{color:var(--accent)} 
+
+/* ----------  Hero  ---------- */
+.hero{
+  position:relative;display:flex;align-items:center;justify-content:center;
+  height:80vh;text-align:center;
+  background:linear-gradient(270deg,var(--accent),var(--accent-hover));
+  background-size:400% 400%;animation:gradientShift 15s ease infinite;
+}
+.hero-content{color:#fff}                 /* <<< texto blanco para contraste */
+.hero-content h2{font-family:var(--font-serif);font-size:3rem;margin-bottom:.5rem}
+.subtitle{color:#ffe56e;font-size:1.25rem;margin-bottom:1.5rem}
+.btn-primary{
+  background:#ffe56e;color:#000;
+  padding:.75rem 1.5rem;border-radius:.5rem;text-decoration:none;
+  transition:background .2s;
+}
+.btn-primary:hover{background:#ffd645}
+
+/* Máquina de escribir */
+.typewriter{
+  display:inline-block;overflow:hidden;white-space:nowrap;
+  border-right:2px solid #ffe56e;
+  animation:typing 3s steps(30,end),blink-caret .75s step-end infinite;
+}
+@keyframes typing{from{width:0}to{width:100%}}
+@keyframes blink-caret{50%{border-color:transparent}}
+
+/* Flecha “scroll down” */
+.scroll-down{
+  position:absolute;bottom:2rem;left:50%;transform:translateX(-50%);
+  font-size:2rem;color:#002f3d;animation:bounce 2s infinite;
+}
+@keyframes bounce{
+  0%,20%,50%,80%,100%{transform:translate(-50%,0)}
+  40%{transform:translate(-50%,-10px)}
+  60%{transform:translate(-50%,-5px)}
+}
+
+/* ----------  Sobre mí  ---------- */
+.profile{text-align:center;margin-bottom:3rem}
+.profile-pic{
+  width:120px;height:120px;border-radius:50%;object-fit:cover;
+  margin-bottom:1rem;box-shadow:0 2px 8px rgba(0,0,0,.1);
+}
+
+/* Secciones generales */
+section{padding:4rem 0}
+.about h3,.projects h3,.contact h3{
+  font-family:var(--font-serif);font-size:2rem;margin-bottom:1rem;
+}
+
+/* ----------  Proyectos  ---------- */
+.project-list{
+  display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:2rem;
+}
+.project-card{
+  background:rgba(0,0,0,.03);padding:1.5rem;border-radius:.75rem;
+}
+.project-card h4{margin-bottom:.5rem}
+.project-card a{color:var(--accent);text-decoration:none;transition:opacity .2s}
+.project-card a:hover{opacity:.8}
+
+/* ----------  Footer  ---------- */
+.site-footer{
+  text-align:center;padding:1.5rem 0;font-size:.875rem;
+  border-top:1px solid rgba(0,0,0,.1);color:var(--fg-inactive);
+}
+
+/* ----------  Estados activo / inactivo  ---------- */
+section h2,section h3,section h4,section p,section .highlight{
+  transition:color .3s ease,text-shadow .3s ease;
+}
+section.inactive h2,section.inactive h3,section.inactive h4,
+section.inactive p,section.inactive .highlight{
+  color:var(--fg-inactive)!important;text-shadow:none!important;
+}
+section.active h2,section.active h3,section.active h4,
+section.active p,section.active .highlight{
+  color:#002f3d!important;text-shadow:0 0 8px rgba(255,229,110,.6)!important;
+}
+
+/* ----------  Efecto “reveal” (fade-in arriba)  ---------- */
+@keyframes fadeInUp{from{opacity:0;transform:translateY(20px)}
+                    to  {opacity:1;transform:translateY(0)}}
+.reveal{
+  opacity:0;transform:translateY(20px);        /* estado inicial */
+  animation:fadeInUp .8s ease forwards;        /* <<< ahora SÍ tiene animation-name */
+}
+
+/* ----------  Degradado animado  ---------- */
+@keyframes gradientShift{
+  0%{background-position:0% 50%}
+  50%{background-position:100% 50%}
+  100%{background-position:0% 50%}
+}
