@@ -92,7 +92,8 @@ section{padding:4rem 0}
   background:rgba(0,0,0,.03);padding:1.5rem;border-radius:.75rem;
 }
 .project-card h4{margin-bottom:.5rem}
-.project-card a{color:var(--accent);text-decoration:none;transition:opacity .2s}
+/* .project-card a{color:#000(--accent);text-decoration:none;transition:opacity .2s} */
+.project-card a{color:#888;text-decoration:none;transition:opacity .2s}
 .project-card a:hover{opacity:.8}
 
 /* ----------  Footer  ---------- */
